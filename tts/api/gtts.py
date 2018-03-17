@@ -10,6 +10,7 @@ TEMP_VOICE_FILE_NAME='/tmp/temp.mp3'
 def text_to_speech(text):
     tts = gTTS(text, lang='ja', slow=False)
     tts.save(TEMP_VOICE_FILE_NAME)
+    time.sleep(0.1)
     pygame.mixer.init()
     pygame.mixer.music.load(TEMP_VOICE_FILE_NAME)
     pygame.mixer.music.play(1)
