@@ -1,7 +1,8 @@
 from setuptools import setup
 from version import __version__
 
-requires = ['pyaudio']
+requires = ['gTTS',
+            'pygame']
 extras = {'dev': ['pytest']}
 
 setup(
