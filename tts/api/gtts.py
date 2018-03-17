@@ -8,14 +8,15 @@ import time
 TEMP_VOICE_FILE_NAME='/tmp/temp.mp3'
 
 def text_to_speech(text):
-    tts = gTTS(text, lang='ja', slow=True)
+    tts = gTTS(text, lang='ja', slow=False)
     tts.save(TEMP_VOICE_FILE_NAME)
     pygame.mixer.init()
     pygame.mixer.music.load(TEMP_VOICE_FILE_NAME)
     pygame.mixer.music.play(1)
     while(pygame.mixer.music.get_busy()):
-        time.sleep(1)
+        time.sleep(0.1)
     pygame.mixer.music.stop()
+    time.sleep(0.1)
     '''
     with NamedTemporaryFile() as f:
         tts.write_to_fp(f)
