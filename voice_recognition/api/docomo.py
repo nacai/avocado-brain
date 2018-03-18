@@ -5,14 +5,20 @@ import pyaudio
 import json
 import wave
 
+RASPBERRY_PI=False
+
 KEY = docomo_api_key.KEY
 
 URL = 'https://api.apigw.smt.docomo.ne.jp/amiVoice/v1/recognize?APIKEY=' + KEY
 
 chunk = 1024
+if RASPBERRY_PI:
+    chunk = 256
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000 # Sampling rate depends on mic spec
+if RASPBERRY_PI:
+    RATE = 44100 # Sampling rate depends on mic spec
 RECORD_FILE_PATH = '/tmp/temp_voice.wav'
 RECORD_SECONDS = 5
 

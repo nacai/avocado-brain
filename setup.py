@@ -3,7 +3,8 @@ from version import __version__
 
 requires = ['gTTS',
             'pygame',
-            'pyaudio']
+            'pyaudio',
+            'wheel']
 extras = {'dev': ['pytest']}
 
 setup(
